@@ -1,0 +1,33 @@
+name: nginx-basics
+help: Examples of nginx resources
+version: 0.1.0
+
+commands:
+- name: restart
+  alias: re
+  help: Restart the current resource example
+
+  examples:
+  - nginx-basics restart
+  - nginx-basics re
+
+- name: run
+  alias: r
+  help: Run a resource example
+
+  args:
+  - name: name
+    required: true
+    help: Resource name
+
+  examples:
+  - nginx-basics run serving-static-content
+  - nginx-basics r serving-static-content
+
+- name: stop
+  alias: st
+  help: Stop running resource example
+
+  examples:
+    - nginx-basics stop
+    - nginx-basics st
