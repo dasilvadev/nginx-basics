@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Serving static content with nginx</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <h1>nginx basics</h1>
+
+      <h3>Serving static content</h3>
+      <p>
+        You can change the content of this page in the directory "<strong>resources/serving-static-content/site</strong>".
+        This directory is linked to directory "<strong>usr/share/nginx/html</strong>" of the container raised when you run:
+      </p>
+
+      <code>
+        $ ./nginx-basics run serving-static-content
+      </code>
+
+      <p>
+        <strong>ALERT:</strong> If you have a local installation of nginx, verify if the service is up. If it is and you are
+        using a Linux distribution, try <code>$ systemctl stop nginx.service</code>.
+      </p>
+
+      <p>
+        To show the changes on the index page, you only need to refresh the web browser page. Or, if you prefer to use the
+        terminal, hit: <br>
+      </p>
+
+      <code>
+        $ curl http://localhost:80/
+      </code>
+
+      <p>
+        or just <code>curl localhost</code>.
+      </p>
+
+      <p>
+        Go to <a href="/files">files</a> or <a href="/configs">configs</a> to see the structure of the file
+        <strong>"nginx.conf"</strong>.
+      </p>
+    </main>
+  </body>
+</html>

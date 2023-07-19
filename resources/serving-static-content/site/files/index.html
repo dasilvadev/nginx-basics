@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Files</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <h1>File nginx.conf</h1>
+
+      <h3>Content</h3>
+
+      <p>
+        The code of the <code>nginx.conf</code> file, in this example, is as follows:
+      </p>
+
+      <pre>
+      # nginx.conf
+      http {
+        server {
+          listen 80;
+          root /usr/share/nginx/html;
+
+          include mime.types;
+
+          location /files {
+            root /usr/share/nginx/html;
+          }
+
+          location /configs {
+            alias /usr/share/nginx/html/files;
+          }
+        }
+      }
+
+      events {}
+      </pre>
+
+      <p>
+        All the changes that you may do in this file, will require you to restart the nginx instance.
+        You can do this with: <br>
+      </p>
+
+      <code>
+        $ ./nginx-basics restart
+      </code>
+
+      <p>
+        or just <code>./nginx-basics re</code>.
+      </p>
+
+      <a href="/">Return to main page</a>
+    </main>
+  </body>
+</html>
