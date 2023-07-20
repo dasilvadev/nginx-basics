@@ -4,6 +4,7 @@
 - [Overview](#overview)
 - [Usage](#usage)
   - [Serving static content](#serving-static-content)
+  - [Load balancer](#load-balancer)
 
 ## Overview
 
