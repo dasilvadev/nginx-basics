@@ -2,16 +2,24 @@ RESOURCE_CONTAINER_FILE=".running_resource"
 
 check_if_resource_file_exists $RESOURCE_CONTAINER_FILE
 
-container_name=$(<"$RESOURCE_CONTAINER_FILE")
+echo "Stopping containers:"
 
-echo "Stopping container:"
+while read line
+do
+  container_name=$line
 
-docker container stop $container_name
+  docker container stop $container_name
+done < "$RESOURCE_CONTAINER_FILE"
 
 echo
-echo "Removing container:"
+echo "Removing containers:"
 
-docker container rm $container_name
+while read line
+do
+  container_name=$line
+
+  docker container rm $container_name
+done < "$RESOURCE_CONTAINER_FILE"
 
 > "$RESOURCE_CONTAINER_FILE"
 

@@ -36,3 +36,31 @@ $ nb stop
 ```
 
 and the current example will stop. If you make any changes to the `nginx.conf` file, for this example you will need to restart the container with the `nb restart` command.
+
+### Load balancer
+
+To run this example, you need to create a network with Docker. Run the following command:
+
+```bash
+$ docker network create load-balancer-network
+```
+
+After that you need the `backend-server` image. Create the image by running the following command:
+
+```bash
+$ docker image build resources/load-balancer/server -t backend-server
+```
+
+If you want to delete the network after the end of the example, just run docker network rm load-balancer-network. After creating the network, just run:
+
+```bash
+$ nb run load-balancer
+```
+
+To check the result, run the client with:
+
+```bash
+$ nb run client-load-balancer
+```
+
+This resource uses the algorithm Round Robin. This algorithm ensures that all the servers listed in the upstream block respond to requests in a circular manner.

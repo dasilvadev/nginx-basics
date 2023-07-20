@@ -1,0 +1,34 @@
+#!/bin/bash
+
+end() {
+  echo
+  echo "Finishing resource example"
+  echo "See you space cowboy..."
+
+  exit 0
+}
+
+trap end SIGINT
+
+DELAY=1
+request_number=1
+SERVER_ADDRESS="http://localhost:80/"
+
+echo "Press 'Ctrl + C' to break the loop."
+echo
+echo "Making multiple requests for:"
+echo "$SERVER_ADDRESS"
+echo
+echo "Responses: "
+
+while true; do
+  response="$(curl -s $SERVER_ADDRESS)"
+
+  echo "Request number: $request_number"
+  echo "Response: $response"
+  echo
+
+  request_number=$(($request_number + 1))
+
+  sleep $DELAY
+done
